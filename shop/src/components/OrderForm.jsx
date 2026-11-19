@@ -34,7 +34,7 @@ function OrderForm({ onClose }) {
                 total: getTotalPrice()
             };
 
-            await axios.post('/api/orders', orderData);
+            await axios.post('https://vercel.app', orderData);
             setMessage(' Заказ оформлен!');
             clearCart();
             

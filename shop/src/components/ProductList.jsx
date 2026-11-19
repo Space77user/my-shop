@@ -12,7 +12,7 @@ function ProductList() {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const response = await axios.get('/api/products');
+                const response = await axios.get('https://vercel.app');
                 setProducts(response.data.data);
                 setError(null);
             } catch (err) {

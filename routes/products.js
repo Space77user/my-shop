@@ -49,8 +49,8 @@ router.get('/', async (req, res) => {
       const product = new Product({
         name: req.body.name,
         price: req.body.price,
-        description: req.body.description,
-        category: req.body.category,
+            description: req.body.description,
+            category: req.body.category,
         imageUrl: req.body.imageUrl
       });
       
@@ -63,9 +63,9 @@ router.get('/', async (req, res) => {
       
     } catch (error) {
       if (error.name === 'ValidationError') {
-        return res.status(400).json({
-          success: false,
-          message: 'Проверьте правильность полей',
+          return res.status(400).json({
+            success: false,
+            message: 'Проверьте правильность полей',
           errors: error.errors
         });
       }

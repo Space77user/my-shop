@@ -34,7 +34,7 @@ function OrderForm({ onClose }) {
                 total: getTotalPrice()
             };
 
-            await axios.post('https://my-shop-co2cjctdy-space-1d47.vercel.app', orderData);
+            await axios.post('https://my-shop-one-theta.vercel.app/api/orders', orderData);
             setMessage(' Заказ оформлен!');
             clearCart();
             

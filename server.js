@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/products', require('./routes/products'));
+app.use('/api/orders', require('./routes/orders'));
 
 app.get('/', (req, res) => {
   res.send('Сервер работает!');
@@ -25,11 +26,12 @@ mongoose.connect(process.env.MONGODB_URL)
     console.log(err.message);
   });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}`);
-  console.log(` Все товары: http://localhost:${PORT}/api/products`);
-});
+const PORT = process.env.PORT || 5000;
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Сервер запущен на http://localhost:${PORT}`);
+    console.log(`Все товары: http://localhost:${PORT}/api/products`);
+  });
+}
 
-app.use('/api/orders', require('./routes/orders'));
-
+module.exports = app;
